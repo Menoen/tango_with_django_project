@@ -75,9 +75,6 @@ TEMPLATES = [
     },
 ]
 
-# print(__file__)
-# print(os.path.dirname(__file__))
-# print(os.path.dirname(os.path.dirname(__file__)))
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
 
 
