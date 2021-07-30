@@ -17,10 +17,14 @@ def index(request):
   context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
   context_dict['categories'] = category_list
   context_dict['pages'] = pages
+  request.session.set_test_cookie()
   return render(request, 'rango/index.html', context = context_dict)
 
 def about(request):
   context_dict = {'yourname':'Weiwei Zhao'}
+  if request.session.test_cookie_worked():
+    print('TEST COOKIE WORKED!')
+    request.session.delete_test_cookie()
   return render(request, 'rango/about.html',context=context_dict)
 
 def show_category(request, category_name_slug):
