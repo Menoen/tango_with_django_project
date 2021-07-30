@@ -54,7 +54,7 @@ def add_page(request, category_name_slug):
       category = None
       
   if category is None:
-      return redirect('/rango/')
+      return redirect(reverse('rango:index'))
 
   form = PageForm()
 
