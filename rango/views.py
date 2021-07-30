@@ -45,7 +45,7 @@ def add_category(request):
     if form.is_valid():
       cat = form.save(commit=True)
       print(cat, cat.slug)
-      return redirect('/rango/')
+      return redirect(reverse('rango:index'))
     else:
       # print errors
       print(form.errors)
@@ -130,9 +130,9 @@ def user_login(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+  return render(request, 'rango/restricted.html')
 
 @login_required
 def user_logout(request):
-    logout(request)
-    return redirect(reverse('rango:index'))
+  logout(request)
+  return redirect(reverse('rango:index'))
